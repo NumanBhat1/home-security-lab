@@ -1,0 +1,78 @@
+Command: enum4linux -a 192.168.128.2
+
+Starting enum4linux v0.9.1 on Fri Jul 31 13:52:00 2026
+
+=========================( Target Information )=========================
+Target ........... 192.168.128.2
+RID Range ........ 500-550,1000-1050
+
+=====================( Workgroup / Domain )=====================
+[+] Got domain/workgroup name: WORKGROUP
+
+=====================( Nbtstat Information )=====================
+        METASPLOITABLE  <00>   Workstation Service
+        METASPLOITABLE  <03>   Messenger Service
+        METASPLOITABLE  <20>   File Server Service
+        WORKGROUP       <00>   Domain/Workgroup Name
+        WORKGROUP       <1d>   Master Browser
+        MAC Address = 00-00-00-00-00-00
+
+=====================( Session Check )=====================
+[+] Server 192.168.128.2 allows sessions using username '', password ''
+    >>> NULL SESSION PERMITTED — anonymous access to SMB is allowed.
+
+=====================( OS Information )=====================
+[+] Got OS info from srvinfo:
+        METASPLOITABLE server (Samba 3.0.20-Debian)
+        platform_id : 500
+        os version  : 4.9
+        server type : 0x9a03
+
+=====================( Users — enumerated anonymously )=====================
+    Full local user list was retrieved over a NULL session. Notable accounts:
+        root, msfadmin, user, service, www-data, postgres, mysql,
+        ftp, proftpd, tomcat55, sys, bin, daemon, backup, telnetd, ...
+    (35 accounts total — see full list below.)
+
+    games, nobody, bind, proxy, syslog, user, www-data, root, news,
+    postgres, bin, mail, distccd, proftpd, dhcp, daemon, sshd, man, lp,
+    mysql, gnats, libuuid, backup, msfadmin, telnetd, sys, klog, postfix,
+    service, list, irc, ftp, tomcat55, sync, uucp
+
+=====================( Share Enumeration )=====================
+        Sharename       Type      Comment
+        ---------       ----      -------
+        print$          Disk      Printer Drivers
+        tmp             Disk      oh noes!
+        opt             Disk
+        IPC$            IPC       IPC Service (Samba 3.0.20-Debian)
+        ADMIN$          IPC       IPC Service (Samba 3.0.20-Debian)
+
+    Share mapping results:
+        //192.168.128.2/tmp     Mapping: OK   Listing: OK   >>> anonymously accessible
+        //192.168.128.2/print$  Mapping: DENIED
+        //192.168.128.2/opt     Mapping: DENIED
+
+=====================( Password Policy )=====================
+    [+] Minimum password length: 0
+    [+] Password Complexity: Disabled
+    [+] Account Lockout Threshold: None
+    [+] Maximum password age: Not Set
+        >>> No lockout, no complexity, no minimum length — brute-force friendly.
+
+=====================( RID Cycling )=====================
+[I] Found SID: S-1-5-21-1042354039-2475377354-766472396
+    Enumerated Administrator (RID 500), root (RID 1000), and system accounts
+    anonymously via RID cycling.
+
+enum4linux complete on Fri Jul 31 13:52:05 2026
+
+--------------------------------------------------------------------------
+Key takeaways:
+- NULL sessions allowed — full user and share enumeration with no credentials.
+- The 'tmp' share is anonymously readable.
+- Complete list of 35 system accounts (incl. root, msfadmin) disclosed to an
+  unauthenticated attacker — a ready-made username list for brute forcing.
+- Password policy is effectively absent: no complexity, no lockout, no minimum
+  length — directly enables the brute-force finding in 02-dvwa-findings.
+- Samba 3.0.20 is vulnerable to the usermap_script RCE (CVE-2007-2447).

@@ -1,0 +1,44 @@
+Command: nikto -h http://192.168.128.2
+
+- Nikto v2.6.0
+---------------------------------------------------------------------------
++ Target IP:          192.168.128.2
++ Target Hostname:    192.168.128.2
++ Target Port:        80
++ Platform:           Unknown
++ Start Time:         2026-07-31 13:49:34 (GMT-4)
+---------------------------------------------------------------------------
++ Server: Apache/2.2.8 (Ubuntu) DAV/2
++ [999986] /: Retrieved x-powered-by header: PHP/5.2.4-2ubuntu5.10.
++ [750500] /icons/: Directory indexing found.
++ No CGI Directories found (use '-C all' to force check all possible dirs). CGI tests skipped.
++ [013587] /: Suggested security header missing: permissions-policy.
++ [013587] /: Suggested security header missing: referrer-policy.
++ [013587] /: Suggested security header missing: strict-transport-security.
++ [013587] /: Suggested security header missing: content-security-policy.
++ [013587] /: Suggested security header missing: x-content-type-options.
++ [999100] /index: Uncommon header(s) 'tcn' found, with contents: list.
++ [999965] /index: Apache mod_negotiation is enabled with MultiViews, which allows attackers to easily brute force file names. Alternatives for 'index' found: index.php.
++ [600050] Apache/2.2.8 appears to be outdated (current is at least 2.4.66).
++ [600625] PHP/5.2.4-2ubuntu5.10 appears to be outdated (current is at least 8.5.1).
++ [000434] /: HTTP TRACE method is active and replies which suggests the host is vulnerable to XST (Cross-Site Tracing).
++ [750510] /phpinfo.php: Output from the phpinfo() function was found.
++ [750500] /doc/: Directory indexing found.
++ [001213] /doc/: The /doc/ directory is browsable. This may be /usr/doc. See CVE-1999-0678.
++ [001384-7] /?=PHP...: PHP Easter Eggs reveal potentially sensitive information via specific QUERY strings.
++ [001795] /phpMyAdmin/changelog.php: phpMyAdmin found — should be protected or limited to authorized hosts.
++ [999984] /phpMyAdmin/ChangeLog: Server may leak inodes via ETags (CVE-2003-1418). inode: 92462, size: 40540, mtime: Tue Dec 9 12:24:00 2008.
++ [001796] /phpMyAdmin/ChangeLog: phpMyAdmin found — should be protected or limited to authorized hosts.
++ [750500] /test/: Directory indexing found.
++ [001894] /test/: This might be interesting.
++ [002989] /phpinfo.php: PHP is installed, and a test script which runs phpinfo() was found. This gives a lot of system information. See CWE-552.
++ [003584] /icons/README: Apache default file found.
+---------------------------------------------------------------------------
+
+Key takeaways:
+- Multiple missing security headers (CSP, HSTS, X-Content-Type-Options, etc.).
+- Directory indexing enabled on /icons/, /doc/, /test/ — information disclosure.
+- phpinfo.php exposes full system/config information (CWE-552).
+- phpMyAdmin exposed and unprotected — direct path to the MySQL database.
+- HTTP TRACE enabled — Cross-Site Tracing (XST) risk.
+- Apache 2.2.8 and PHP 5.2.4 both end-of-life with many known CVEs.
