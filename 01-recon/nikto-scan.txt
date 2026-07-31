@@ -26,9 +26,9 @@ Command: nikto -h http://192.168.128.2
 + [750500] /doc/: Directory indexing found.
 + [001213] /doc/: The /doc/ directory is browsable. This may be /usr/doc. See CVE-1999-0678.
 + [001384-7] /?=PHP...: PHP Easter Eggs reveal potentially sensitive information via specific QUERY strings.
-+ [001795] /phpMyAdmin/changelog.php: phpMyAdmin found — should be protected or limited to authorized hosts.
++ [001795] /phpMyAdmin/changelog.php: phpMyAdmin found, should be protected or limited to authorized hosts.
 + [999984] /phpMyAdmin/ChangeLog: Server may leak inodes via ETags (CVE-2003-1418). inode: 92462, size: 40540, mtime: Tue Dec 9 12:24:00 2008.
-+ [001796] /phpMyAdmin/ChangeLog: phpMyAdmin found — should be protected or limited to authorized hosts.
++ [001796] /phpMyAdmin/ChangeLog: phpMyAdmin found, should be protected or limited to authorized hosts.
 + [750500] /test/: Directory indexing found.
 + [001894] /test/: This might be interesting.
 + [002989] /phpinfo.php: PHP is installed, and a test script which runs phpinfo() was found. This gives a lot of system information. See CWE-552.
@@ -37,8 +37,8 @@ Command: nikto -h http://192.168.128.2
 
 Key takeaways:
 - Multiple missing security headers (CSP, HSTS, X-Content-Type-Options, etc.).
-- Directory indexing enabled on /icons/, /doc/, /test/ — information disclosure.
+- Directory indexing enabled on /icons/, /doc/, /test/: information disclosure.
 - phpinfo.php exposes full system/config information (CWE-552).
-- phpMyAdmin exposed and unprotected — direct path to the MySQL database.
-- HTTP TRACE enabled — Cross-Site Tracing (XST) risk.
+- phpMyAdmin exposed and unprotected: direct path to the MySQL database.
+- HTTP TRACE enabled: Cross-Site Tracing (XST) risk.
 - Apache 2.2.8 and PHP 5.2.4 both end-of-life with many known CVEs.

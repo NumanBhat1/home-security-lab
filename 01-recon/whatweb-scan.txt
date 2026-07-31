@@ -12,5 +12,5 @@ http://192.168.128.2 [200 OK]
 
 Notes:
 - Web stack: Apache 2.2.8 + PHP 5.2.4, both severely end-of-life.
-- WebDAV (DAV/2) enabled — expands attack surface (PUT/DELETE method abuse).
+- WebDAV (DAV/2) enabled: expands attack surface (PUT/DELETE method abuse).
 - X-Powered-By header discloses the exact PHP version to attackers.

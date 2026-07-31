@@ -1,4 +1,4 @@
-# Investigation: [Alert Name] — [Date]
+# Investigation: [Alert Name]: [Date]
 
 **Analyst:** Numan Khalid Bhat
 **Alert:** [which saved search / detection fired]
@@ -9,14 +9,14 @@
 ## 1. What fired
 What triggered the alert? Paste the alert details / Splunk screenshot.
 
-## 2. Triage — what I checked
+## 2. Triage: what I checked
 - Source IP / host:
 - Time window:
 - What the raw events show:
 - Related activity around the same time:
 
 ## 3. Verdict
-**True Positive / False Positive** — and why.
+**True Positive / False Positive**, and why.
 
 (A real SOC analyst's value is here: explaining *why* it's a true or false positive, not just that an alert fired.)
 

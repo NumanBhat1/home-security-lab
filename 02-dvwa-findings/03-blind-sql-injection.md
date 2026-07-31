@@ -33,7 +33,7 @@ Returns "User ID is MISSING from the database."
 
 The difference in responses to logically equivalent inputs confirms the query is being manipulated, even though no data is printed.
 
-![Screenshot](./screenshots/03-blind-sql-injection.png)
+> Note: this finding is confirmed through application behaviour (the true vs false responses above) rather than a single screenshot, since blind injection produces no visible data output.
 
 ## Business Impact
 Despite the limited output, an attacker can extract the entire database one bit at a time by asking a series of true/false questions (e.g. "is the first character of the admin password hash 'a'?"). Time-based variants (`SLEEP()`) work even when there is no visible true/false difference. The end result is the same as classic SQLi, full data disclosure. It just takes longer and is normally automated with a tool.

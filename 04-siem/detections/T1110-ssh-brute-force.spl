@@ -18,7 +18,7 @@ index=linux sourcetype=linux_secure "Failed password"
 | sort - failed_attempts
 
 /* Tuning notes:
-   - Threshold (10 / 5 min) is a starting point — tune to your lab's noise.
+   - Threshold (10 / 5 min) is a starting point: tune to your lab's noise.
    - A true positive: many failures from one IP, then a 'Accepted password'.
    - A false positive: a user fat-fingering their password a few times.
    - Escalate when failures are followed by a success from the same IP.

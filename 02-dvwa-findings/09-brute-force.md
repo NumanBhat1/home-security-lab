@@ -32,7 +32,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.168.128.2 http-get-form \
 ```
 The weak default credentials (`admin` / `password`) are recovered quickly.
 
-![Screenshot](./screenshots/09-brute-force.png)
+> Note: this finding is evidenced by the source code observation above (unsalted MD5, no lockout) combined with the absent password policy confirmed during SMB enumeration in `../01-recon/`.
 
 ## Business Impact
 - Account takeover through credential guessing

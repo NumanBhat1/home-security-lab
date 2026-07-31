@@ -11,6 +11,14 @@ Host discovery, port scanning, and service enumeration against the Metasploitabl
 | [`nikto-scan.txt`](./nikto-scan.txt) | Nikto | Web server misconfigurations and exposed files |
 | [`smb-enumeration.txt`](./smb-enumeration.txt) | enum4linux | SMB users, shares, and password policy |
 
+## Evidence
+
+![Nmap scan](./nmap-scan.png)
+*Nmap service scan showing the open ports and versions on the target.*
+
+![SMB enumeration](./smb-enum.png)
+*enum4linux confirming an anonymous (NULL) SMB session is allowed.*
+
 ## Exposed services (from the Nmap scan)
 
 | Port | Service | Version | Notable |
@@ -25,13 +33,13 @@ Host discovery, port scanning, and service enumeration against the Metasploitabl
 | 139/445 | SMB | Samba 3.0.20-Debian | usermap_script RCE (CVE-2007-2447); NULL sessions; signing disabled |
 | 512/513/514 | r-services | rexec / rlogin / rsh | Legacy cleartext remote access |
 | 1099 | Java RMI | GNU Classpath | Remote class loading risk |
-| 1524 | bindshell | Metasploitable root shell | **Direct root shell — instant compromise** |
+| 1524 | bindshell | Metasploitable root shell | **Direct root shell, instant compromise** |
 | 2049 | NFS | RPC 100003 | Potential exported shares |
 | 2121 | FTP | ProFTPD 1.3.1 | Secondary FTP daemon |
 | 3306 | MySQL | 5.0.51a | Reachable over network |
 | 5432 | PostgreSQL | 8.3 | Reachable over network |
 | 5900 | VNC | protocol 3.3 | Weak VNC auth |
-| 6000 | X11 | — | Access denied but exposed |
+| 6000 | X11 | n/a | Access denied but exposed |
 | 6667 | IRC | UnrealIRCd | Backdoored build (CVE-2010-2075) |
 | 8009 | AJP13 | Apache Jserv | Tomcat connector |
 | 8180 | HTTP | Apache Tomcat 5.5 | Default manager credentials common |

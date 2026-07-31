@@ -4,7 +4,7 @@ Splunk-based detection lab. Attacks are run from Kali against Metasploitable; th
 
 ## Build order
 1. Install **Splunk Enterprise Free** inside the Kali VM (native ARM64 `.tgz` from splunk.com; free licence = 500 MB/day).
-2. Onboard Linux logs from Metasploitable (`/var/log/auth.log`, `syslog`, Apache logs) — or a universal forwarder.
+2. Onboard Linux logs from Metasploitable (`/var/log/auth.log`, `syslog`, Apache logs), or a universal forwarder.
 3. Onboard Windows + Sysmon logs from the Windows desktop (see `../05-windows/`).
 4. For each attack, write the detection search, save it as an alert, and write an investigation.
 
