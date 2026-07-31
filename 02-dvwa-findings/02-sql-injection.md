@@ -2,8 +2,8 @@
 
 **Severity:** Critical
 **CVSS v3.1:** 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)
-**CWE:** CWE-89 — Improper Neutralization of Special Elements used in an SQL Command
-**OWASP Top 10:** A03:2021 — Injection
+**CWE:** CWE-89: Improper Neutralization of Special Elements used in an SQL Command
+**OWASP Top 10:** A03:2021 Injection
 
 ---
 
@@ -17,14 +17,14 @@ The application builds SQL queries by concatenating user input directly into the
 
 ## Proof of Concept
 
-**Normal input** — `User ID: 1` returns a single record:
+**Normal input:** `User ID: 1` returns a single record:
 ```
 ID: 1
 First name: admin
 Surname: admin
 ```
 
-**Malicious input** — the payload below makes the `WHERE` clause always true, returning every row in the table:
+**Malicious input:** the payload below makes the `WHERE` clause always true, returning every row in the table:
 
 **Payload:**
 ```

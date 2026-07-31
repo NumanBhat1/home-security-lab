@@ -2,8 +2,8 @@
 
 **Severity:** Critical
 **CVSS v3.1:** 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)
-**CWE:** CWE-434 — Unrestricted Upload of File with Dangerous Type
-**OWASP Top 10:** A04:2021 — Insecure Design
+**CWE:** CWE-434: Unrestricted Upload of File with Dangerous Type
+**OWASP Top 10:** A04:2021 Insecure Design
 
 ---
 
@@ -19,7 +19,7 @@ The application accepts file uploads without validating the file type, extension
 
 A PHP file was created to test whether server-side script execution is possible:
 
-**File — `shell.php`:**
+**File `shell.php`:**
 ```php
 <?php echo "Upload test"; ?>
 ```

@@ -2,8 +2,8 @@
 
 **Severity:** Medium
 **CVSS v3.1:** 6.5 (AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N)
-**CWE:** CWE-352 — Cross-Site Request Forgery
-**OWASP Top 10:** A01:2021 — Broken Access Control
+**CWE:** CWE-352: Cross-Site Request Forgery
+**OWASP Top 10:** A01:2021 Broken Access Control
 
 ---
 
@@ -29,7 +29,7 @@ Submitting this request while authenticated changed the account password success
 ![Screenshot](./screenshots/08-csrf.png)
 
 ## Business Impact
-An attacker can force an authenticated user to perform unwanted actions — change their password (account takeover), change their email, transfer funds, or modify settings — simply by getting them to load a malicious page while logged in.
+An attacker can force a logged-in user to perform unwanted actions such as changing their password (account takeover), changing their email, transferring funds, or modifying settings, simply by getting them to load a malicious page while their session is active.
 
 ## Root Cause
 State-changing requests are authenticated only by the ambient session cookie, which the browser sends automatically. There is no per-request anti-CSRF token and no re-authentication.

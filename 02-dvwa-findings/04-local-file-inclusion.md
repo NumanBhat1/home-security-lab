@@ -2,8 +2,8 @@
 
 **Severity:** High
 **CVSS v3.1:** 7.5 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N)
-**CWE:** CWE-98 — Improper Control of Filename for Include/Require Statement
-**OWASP Top 10:** A01:2021 — Broken Access Control
+**CWE:** CWE-98: Improper Control of Filename for Include/Require Statement
+**OWASP Top 10:** A01:2021 Broken Access Control
 
 ---
 
@@ -24,13 +24,13 @@ No validation is performed on the requested path.
 
 ## Proof of Concept
 
-**Absolute path inclusion — successful:**
+**Absolute path inclusion (successful):**
 ```
 ?page=/etc/passwd
 ```
 The contents of `/etc/passwd` were returned, disclosing Linux account information (usernames, UIDs, home directories, shells).
 
-**Directory traversal — behavior noted:**
+**Directory traversal (behaviour noted):**
 ```
 ?page=../../../../etc/passwd
 ```

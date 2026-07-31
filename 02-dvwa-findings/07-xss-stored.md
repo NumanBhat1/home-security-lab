@@ -2,8 +2,8 @@
 
 **Severity:** High
 **CVSS v3.1:** 7.4 (AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:L/A:N)
-**CWE:** CWE-79 — Improper Neutralization of Input During Web Page Generation
-**OWASP Top 10:** A03:2021 — Injection
+**CWE:** CWE-79: Improper Neutralization of Input During Web Page Generation
+**OWASP Top 10:** A03:2021 Injection
 
 ---
 
@@ -24,11 +24,11 @@ The payload was submitted into the stored guestbook/message field:
 <script>alert('XSS')</script>
 ```
 
-**Result:** The script was saved and executed automatically every time the page was loaded — no crafted link or victim interaction required.
+**Result:** The script was saved and ran automatically every time the page loaded, with no crafted link or victim interaction needed.
 
 ![Screenshot](./screenshots/07-xss-stored.png)
 
-## Reflected vs Stored — why Stored is worse
+## Reflected vs Stored: why Stored is worse
 | | Reflected XSS | Stored XSS |
 |---|---|---|
 | Delivery | Victim must click a crafted link | Payload lives on the page |

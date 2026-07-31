@@ -2,8 +2,8 @@
 
 **Severity:** Medium
 **CVSS v3.1:** 6.1 (AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N)
-**CWE:** CWE-79 — Improper Neutralization of Input During Web Page Generation
-**OWASP Top 10:** A03:2021 — Injection
+**CWE:** CWE-79: Improper Neutralization of Input During Web Page Generation
+**OWASP Top 10:** A03:2021 Injection
 
 ---
 

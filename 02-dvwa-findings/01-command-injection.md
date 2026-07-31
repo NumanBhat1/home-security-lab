@@ -2,8 +2,8 @@
 
 **Severity:** Critical
 **CVSS v3.1:** 9.8 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H)
-**CWE:** CWE-78 — Improper Neutralization of Special Elements used in an OS Command
-**OWASP Top 10:** A03:2021 — Injection
+**CWE:** CWE-78: Improper Neutralization of Special Elements used in an OS Command
+**OWASP Top 10:** A03:2021 Injection
 
 ---
 

@@ -2,8 +2,8 @@
 
 **Severity:** High
 **CVSS v3.1:** 8.1 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N)
-**CWE:** CWE-307 — Improper Restriction of Excessive Authentication Attempts
-**OWASP Top 10:** A07:2021 — Identification and Authentication Failures
+**CWE:** CWE-307: Improper Restriction of Excessive Authentication Attempts
+**OWASP Top 10:** A07:2021 Identification and Authentication Failures
 
 ---
 
@@ -13,7 +13,7 @@ The login function has no protection against automated password guessing: no rat
 ## Environment
 - **Target:** Metasploitable 2 / DVWA (Security: Low)
 - **Module:** DVWA > Brute Force
-- **Tool:** Browser (manual), Hydra (automated — optional)
+- **Tool:** Browser (manual), Hydra (automated, optional)
 
 ## Source Code Observation
 ```php
@@ -43,7 +43,7 @@ The weak default credentials (`admin` / `password`) are recovered quickly.
 Weak authentication design: fast unsalted hashing (MD5), no rate limiting, no account lockout, no MFA.
 
 ## Remediation
-- Store passwords with a slow, salted algorithm — **bcrypt, scrypt, or Argon2**.
+- Store passwords with a slow, salted algorithm such as **bcrypt, scrypt, or Argon2**.
 - Implement **rate limiting** and **account lockout / progressive delays** after failed attempts.
 - Add **multi-factor authentication (MFA)**.
 - Add CAPTCHA after repeated failures and monitor/alert on brute-force patterns.
