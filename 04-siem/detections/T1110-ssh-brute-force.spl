@@ -1,0 +1,25 @@
+/*
+Detection: SSH Brute Force
+MITRE ATT&CK: T1110 - Brute Force
+Data source: Linux auth.log (Metasploitable / any Linux endpoint)
+Logic: alert when a single source IP produces many failed SSH logons
+       in a short window, optionally followed by a success.
+
+This is a TEMPLATE. Once Splunk is ingesting auth.log, run this search,
+confirm it fires against your Hydra attack, then save it as an alert and
+record the investigation in ../investigations/.
+*/
+
+index=linux sourcetype=linux_secure "Failed password"
+| rex "from (?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| bin _time span=5m
+| stats count AS failed_attempts values(user) AS targeted_users by _time, src_ip
+| where failed_attempts > 10
+| sort - failed_attempts
+
+/* Tuning notes:
+   - Threshold (10 / 5 min) is a starting point — tune to your lab's noise.
+   - A true positive: many failures from one IP, then a 'Accepted password'.
+   - A false positive: a user fat-fingering their password a few times.
+   - Escalate when failures are followed by a success from the same IP.
+*/
