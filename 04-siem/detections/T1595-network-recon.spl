@@ -1,0 +1,32 @@
+/*
+Detection: Network Reconnaissance (port scans, host sweeps, service targeting)
+MITRE ATT&CK: T1046 Network Service Discovery, T1018 Remote System Discovery,
+              T1595 Active Scanning
+Data: Firewall logs (index=network, sourcetype=syslog, UFW/iptables "UFW BLOCK")
+*/
+
+/* Port scan: one source hitting many distinct ports on a host */
+index=network sourcetype=syslog "UFW BLOCK"
+| rex "SRC=(?<src_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| rex "DST=(?<dst_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| rex "DPT=(?<dst_port>\d+)"
+| rex "PROTO=(?<proto>\w+)"
+| stats dc(dst_port) AS ports_scanned, count AS blocked_attempts, values(proto) AS protocols by src_ip, dst_ip
+| where ports_scanned >= 20
+| sort - ports_scanned
+
+/* Ping/host sweep: one source touching many distinct hosts */
+index=network sourcetype=syslog "UFW BLOCK"
+| rex "SRC=(?<src_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| rex "DST=(?<dst_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| stats dc(dst_ip) AS hosts_touched, count AS attempts by src_ip
+| where hosts_touched >= 10
+| sort - hosts_touched
+
+/* Service targeting: which well-known services the attacker probed */
+index=network sourcetype=syslog "UFW BLOCK"
+| rex "DPT=(?<dst_port>\d+)"
+| eval service=case(dst_port=="22","SSH",dst_port=="445","SMB",dst_port=="3389","RDP",dst_port=="3306","MySQL",dst_port=="80","HTTP",dst_port=="443","HTTPS",dst_port=="21","FTP",dst_port=="23","Telnet",dst_port=="139","NetBIOS",dst_port=="25","SMTP",dst_port=="53","DNS",dst_port=="5432","Postgres",dst_port=="5900","VNC",true(),"other")
+| where service!="other"
+| stats count by dst_port, service
+| sort - count

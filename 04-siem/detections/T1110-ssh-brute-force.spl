@@ -1,0 +1,22 @@
+/*
+Detection: SSH Brute Force + Successful Compromise
+MITRE ATT&CK: T1110 Brute Force, T1078 Valid Accounts
+Data: Linux auth.log (index=linux, sourcetype=linux_secure)
+*/
+
+/* 1) Brute force: many failed logins per source IP in 5-min buckets */
+index=linux sourcetype=linux_secure "Failed password"
+| rex "Failed password for (?:invalid user )?(?<user>\S+) from (?<src_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| bin _time span=5m
+| stats count AS failed_attempts, dc(user) AS users_targeted, values(user) AS usernames by _time, src_ip
+| where failed_attempts >= 20
+| sort - failed_attempts
+
+/* 2) Compromise: failures followed by a success from the SAME IP (this is the incident) */
+index=linux sourcetype=linux_secure ("Failed password" OR "Accepted password")
+| rex "Failed password for (?:invalid user )?(?<f_user>\S+) from (?<src_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| rex "Accepted password for (?<s_user>\S+) from (?<src_ip>\d{1,3}(?:\.\d{1,3}){3})"
+| eval outcome=if(isnotnull(f_user),"failed","success")
+| stats count(eval(outcome="failed")) AS failures, count(eval(outcome="success")) AS successes, values(s_user) AS compromised_user by src_ip
+| where failures >= 20 AND successes >= 1
+/* Result in this lab: 192.168.56.104 -> 148 failures, 1 success, compromised_user=msfadmin */
