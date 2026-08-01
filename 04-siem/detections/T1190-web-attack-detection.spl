@@ -1,0 +1,31 @@
+/*
+Detection: Web Application Attack Detection
+MITRE ATT&CK:
+  - T1190 Exploit Public-Facing Application  (SQL Injection, LFI/Path Traversal)
+  - T1059 Command and Scripting Interpreter  (Command Injection)
+  - T1505.003 Web Shell                       (upload/access of shell.php)
+Data source: Apache access logs from the DVWA host (sourcetype=access_combined)
+Logic: classify each request by attack signature seen in the raw log line,
+       then group by source IP and attack type.
+
+Load data: Settings > Add Data > Upload > access.log > sourcetype access_combined.
+*/
+
+index=* sourcetype=access_combined
+| eval attack=case(
+    match(_raw,"(?i)/etc/passwd|\.\./\.\./"),                                    "LFI / Path Traversal",
+    match(_raw,"(?i)union.*select|'\s*or\s*'1'='1|or\s+1=1|information_schema"),  "SQL Injection",
+    match(_raw,"(?i)<script>|onerror=|javascript:"),                             "Cross-Site Scripting",
+    match(_raw,"(?i)(;|\||%3b|%7c).*(whoami|id|uname|/bin/)"),                    "Command Injection",
+    match(_raw,"(?i)/uploads/.*\.php|shell\.php"),                               "Web Shell Access"
+  )
+| where isnotnull(attack)
+| stats count values(uri) AS uris by clientip, attack
+| sort - count
+
+/* Triage notes:
+   - True positive: attack signatures from a single client IP against DVWA.
+   - Web Shell Access after an upload = likely successful RCE; escalate.
+   - Tune out scanner noise (Nikto) if you only want manual exploitation.
+   - Containment: block source IP, remove uploaded files, patch input validation.
+*/

@@ -1,0 +1,107 @@
+Jul 31 09:00:00 kali-target sshd[4000]: Accepted password for msfadmin from 192.168.56.101 port 41430 ssh2
+Jul 31 09:00:00 kali-target sshd[4000]: pam_unix(sshd:session): session opened for user msfadmin by (uid=0)
+Jul 31 10:19:00 kali-target sshd[4001]: Accepted password for devops from 192.168.56.101 port 51064 ssh2
+Jul 31 10:19:00 kali-target sshd[4001]: pam_unix(sshd:session): session opened for user devops by (uid=0)
+Jul 31 11:13:00 kali-target sshd[4002]: Accepted password for analyst from 192.168.56.115 port 56693 ssh2
+Jul 31 11:13:00 kali-target sshd[4002]: pam_unix(sshd:session): session opened for user analyst by (uid=0)
+Jul 31 10:00:00 kali-target sshd[4003]: Accepted publickey for devops from 192.168.56.101 port 50122 ssh2: RSA SHA256:abc123
+Jul 31 10:20:00 kali-target sudo:  msfadmin : TTY=pts/0 ; PWD=/home/msfadmin ; USER=root ; COMMAND=/usr/bin/apt update
+Jul 31 10:20:00 kali-target sudo: pam_unix(sudo:session): session opened for user root by msfadmin(uid=1003)
+Jul 31 10:40:00 kali-target sudo:  devops : TTY=pts/0 ; PWD=/home/devops ; USER=root ; COMMAND=/bin/systemctl restart nginx
+Jul 31 10:40:00 kali-target sudo: pam_unix(sudo:session): session opened for user root by devops(uid=1002)
+Jul 31 11:12:00 kali-target sudo:  analyst : TTY=pts/0 ; PWD=/home/analyst ; USER=root ; COMMAND=/usr/bin/less /var/log/syslog
+Jul 31 11:12:00 kali-target sudo: pam_unix(sudo:session): session opened for user root by analyst(uid=1005)
+Jul 31 11:37:00 kali-target sudo:  analyst : user NOT in sudoers ; TTY=pts/2 ; PWD=/home/analyst ; USER=root ; COMMAND=/bin/bash
+Jul 31 03:14:00 kali-target sshd[4004]: Failed password for invalid user oracle from 203.0.113.66 port 50820 ssh2
+Jul 31 03:14:00 kali-target sshd[4004]: Invalid user oracle from 203.0.113.66 port 55014
+Jul 31 03:14:04 kali-target sshd[4005]: Failed password for invalid user ftp from 203.0.113.66 port 59930 ssh2
+Jul 31 03:14:04 kali-target sshd[4005]: Invalid user ftp from 203.0.113.66 port 50871
+Jul 31 03:14:06 kali-target sshd[4006]: Failed password for invalid user jenkins from 203.0.113.66 port 58488 ssh2
+Jul 31 03:14:06 kali-target sshd[4006]: Invalid user jenkins from 203.0.113.66 port 48644
+Jul 31 03:14:09 kali-target sshd[4007]: Failed password for invalid user teamcity from 203.0.113.66 port 46901 ssh2
+Jul 31 03:14:09 kali-target sshd[4007]: Invalid user teamcity from 203.0.113.66 port 49582
+Jul 31 03:14:13 kali-target sshd[4008]: Failed password for invalid user backup from 203.0.113.66 port 57694 ssh2
+Jul 31 03:14:13 kali-target sshd[4008]: Invalid user backup from 203.0.113.66 port 48812
+Jul 31 03:14:17 kali-target sshd[4009]: Failed password for invalid user jenkins from 203.0.113.66 port 54142 ssh2
+Jul 31 03:14:17 kali-target sshd[4009]: Invalid user jenkins from 203.0.113.66 port 43934
+Jul 31 03:14:20 kali-target sshd[4010]: Failed password for invalid user ftp from 203.0.113.66 port 55379 ssh2
+Jul 31 03:14:20 kali-target sshd[4010]: Invalid user ftp from 203.0.113.66 port 46861
+Jul 31 03:14:24 kali-target sshd[4011]: Failed password for invalid user jenkins from 203.0.113.66 port 42998 ssh2
+Jul 31 03:14:24 kali-target sshd[4011]: Invalid user jenkins from 203.0.113.66 port 47928
+Jul 31 03:14:26 kali-target sshd[4012]: Failed password for invalid user oracle from 203.0.113.66 port 43789 ssh2
+Jul 31 03:14:26 kali-target sshd[4012]: Invalid user oracle from 203.0.113.66 port 46604
+Jul 31 03:14:32 kali-target sshd[4013]: Failed password for invalid user ftp from 203.0.113.66 port 56551 ssh2
+Jul 31 03:14:32 kali-target sshd[4013]: Invalid user ftp from 203.0.113.66 port 48277
+Jul 31 03:14:36 kali-target sshd[4014]: Failed password for invalid user git from 203.0.113.66 port 43825 ssh2
+Jul 31 03:14:36 kali-target sshd[4014]: Invalid user git from 203.0.113.66 port 51668
+Jul 31 03:14:41 kali-target sshd[4015]: Failed password for invalid user teamcity from 203.0.113.66 port 51101 ssh2
+Jul 31 03:14:41 kali-target sshd[4015]: Invalid user teamcity from 203.0.113.66 port 47089
+Jul 31 03:14:47 kali-target sshd[4016]: Failed password for invalid user jenkins from 203.0.113.66 port 55942 ssh2
+Jul 31 03:14:47 kali-target sshd[4016]: Invalid user jenkins from 203.0.113.66 port 51072
+Jul 31 03:14:53 kali-target sshd[4017]: Failed password for invalid user teamcity from 203.0.113.66 port 46839 ssh2
+Jul 31 03:14:53 kali-target sshd[4017]: Invalid user teamcity from 203.0.113.66 port 50054
+Jul 31 03:14:58 kali-target sshd[4018]: Failed password for invalid user backup from 203.0.113.66 port 52851 ssh2
+Jul 31 03:14:58 kali-target sshd[4018]: Invalid user backup from 203.0.113.66 port 52658
+Jul 31 03:15:04 kali-target sshd[4019]: Failed password for invalid user teamcity from 203.0.113.66 port 47091 ssh2
+Jul 31 03:15:04 kali-target sshd[4019]: Invalid user teamcity from 203.0.113.66 port 43925
+Jul 31 03:15:08 kali-target sshd[4020]: Failed password for invalid user git from 203.0.113.66 port 40570 ssh2
+Jul 31 03:15:08 kali-target sshd[4020]: Invalid user git from 203.0.113.66 port 42749
+Jul 31 03:15:12 kali-target sshd[4021]: Failed password for invalid user oracle from 203.0.113.66 port 45073 ssh2
+Jul 31 03:15:12 kali-target sshd[4021]: Invalid user oracle from 203.0.113.66 port 57383
+Jul 31 03:15:18 kali-target sshd[4022]: Failed password for invalid user oracle from 203.0.113.66 port 41855 ssh2
+Jul 31 03:15:18 kali-target sshd[4022]: Invalid user oracle from 203.0.113.66 port 52267
+Jul 31 03:15:22 kali-target sshd[4023]: Failed password for invalid user oracle from 203.0.113.66 port 57642 ssh2
+Jul 31 03:15:22 kali-target sshd[4023]: Invalid user oracle from 203.0.113.66 port 40747
+Jul 31 03:15:24 kali-target sshd[4024]: Failed password for invalid user oracle from 203.0.113.66 port 41197 ssh2
+Jul 31 03:15:24 kali-target sshd[4024]: Invalid user oracle from 203.0.113.66 port 47820
+Jul 31 03:15:28 kali-target sshd[4025]: Failed password for invalid user git from 203.0.113.66 port 41298 ssh2
+Jul 31 03:15:28 kali-target sshd[4025]: Invalid user git from 203.0.113.66 port 49034
+Jul 31 03:15:31 kali-target sshd[4026]: Failed password for invalid user oracle from 203.0.113.66 port 54662 ssh2
+Jul 31 03:15:31 kali-target sshd[4026]: Invalid user oracle from 203.0.113.66 port 47242
+Jul 31 03:15:37 kali-target sshd[4027]: Failed password for invalid user backup from 203.0.113.66 port 54614 ssh2
+Jul 31 03:15:37 kali-target sshd[4027]: Invalid user backup from 203.0.113.66 port 58439
+Jul 31 03:15:39 kali-target sshd[4028]: Failed password for invalid user jenkins from 203.0.113.66 port 54591 ssh2
+Jul 31 03:15:39 kali-target sshd[4028]: Invalid user jenkins from 203.0.113.66 port 43120
+Jul 31 03:15:41 kali-target sshd[4029]: Failed password for invalid user git from 203.0.113.66 port 48076 ssh2
+Jul 31 03:15:41 kali-target sshd[4029]: Invalid user git from 203.0.113.66 port 47261
+Jul 31 03:15:44 kali-target sshd[4030]: Failed password for invalid user oracle from 203.0.113.66 port 48129 ssh2
+Jul 31 03:15:44 kali-target sshd[4030]: Invalid user oracle from 203.0.113.66 port 49818
+Jul 31 03:15:46 kali-target sshd[4031]: Failed password for invalid user teamcity from 203.0.113.66 port 57557 ssh2
+Jul 31 03:15:46 kali-target sshd[4031]: Invalid user teamcity from 203.0.113.66 port 54300
+Jul 31 03:15:48 kali-target sshd[4032]: Failed password for invalid user git from 203.0.113.66 port 59469 ssh2
+Jul 31 03:15:48 kali-target sshd[4032]: Invalid user git from 203.0.113.66 port 54778
+Jul 31 03:15:50 kali-target sshd[4033]: Failed password for invalid user ftp from 203.0.113.66 port 58658 ssh2
+Jul 31 03:15:50 kali-target sshd[4033]: Invalid user ftp from 203.0.113.66 port 54768
+Jul 31 03:15:52 kali-target sshd[4034]: Failed password for invalid user git from 203.0.113.66 port 57485 ssh2
+Jul 31 03:15:52 kali-target sshd[4034]: Invalid user git from 203.0.113.66 port 51433
+Jul 31 03:15:54 kali-target sshd[4035]: Failed password for invalid user git from 203.0.113.66 port 56344 ssh2
+Jul 31 03:15:54 kali-target sshd[4035]: Invalid user git from 203.0.113.66 port 45244
+Jul 31 03:15:57 kali-target sshd[4036]: Failed password for invalid user jenkins from 203.0.113.66 port 50669 ssh2
+Jul 31 03:15:57 kali-target sshd[4036]: Invalid user jenkins from 203.0.113.66 port 57767
+Jul 31 03:16:02 kali-target sshd[4037]: Failed password for invalid user ftp from 203.0.113.66 port 43913 ssh2
+Jul 31 03:16:02 kali-target sshd[4037]: Invalid user ftp from 203.0.113.66 port 50721
+Jul 31 03:16:04 kali-target sshd[4038]: Failed password for invalid user teamcity from 203.0.113.66 port 54441 ssh2
+Jul 31 03:16:04 kali-target sshd[4038]: Invalid user teamcity from 203.0.113.66 port 55277
+Jul 31 03:16:07 kali-target sshd[4039]: Failed password for invalid user git from 203.0.113.66 port 51883 ssh2
+Jul 31 03:16:07 kali-target sshd[4039]: Invalid user git from 203.0.113.66 port 45662
+Jul 31 03:16:13 kali-target sshd[4040]: Failed password for invalid user ftp from 203.0.113.66 port 50125 ssh2
+Jul 31 03:16:13 kali-target sshd[4040]: Invalid user ftp from 203.0.113.66 port 58244
+Jul 31 03:16:19 kali-target sshd[4041]: Failed password for invalid user jenkins from 203.0.113.66 port 49870 ssh2
+Jul 31 03:16:19 kali-target sshd[4041]: Invalid user jenkins from 203.0.113.66 port 52833
+Jul 31 03:16:24 kali-target sshd[4042]: Failed password for invalid user git from 203.0.113.66 port 59725 ssh2
+Jul 31 03:16:24 kali-target sshd[4042]: Invalid user git from 203.0.113.66 port 51177
+Jul 31 03:16:27 kali-target sshd[4043]: Failed password for invalid user git from 203.0.113.66 port 48748 ssh2
+Jul 31 03:16:27 kali-target sshd[4043]: Invalid user git from 203.0.113.66 port 51626
+Jul 31 03:16:29 kali-target sshd[4044]: Failed password for invalid user teamcity from 203.0.113.66 port 41140 ssh2
+Jul 31 03:16:29 kali-target sshd[4044]: Invalid user teamcity from 203.0.113.66 port 59140
+Jul 31 03:16:33 kali-target sshd[4045]: Failed password for invalid user git from 203.0.113.66 port 57962 ssh2
+Jul 31 03:16:33 kali-target sshd[4045]: Invalid user git from 203.0.113.66 port 53335
+Jul 31 03:16:39 kali-target sshd[4046]: Failed password for invalid user oracle from 203.0.113.66 port 55648 ssh2
+Jul 31 03:16:39 kali-target sshd[4046]: Invalid user oracle from 203.0.113.66 port 48667
+Jul 31 03:16:45 kali-target sshd[4047]: Failed password for invalid user git from 203.0.113.66 port 55232 ssh2
+Jul 31 03:16:45 kali-target sshd[4047]: Invalid user git from 203.0.113.66 port 49229
+Jul 31 03:16:49 kali-target sshd[4048]: Failed password for invalid user oracle from 203.0.113.66 port 48030 ssh2
+Jul 31 03:16:49 kali-target sshd[4048]: Invalid user oracle from 203.0.113.66 port 58229
+Jul 31 03:29:00 kali-target useradd[4049]: new user: name=svc-backup, UID=0, GID=0, home=/home/svc-backup, shell=/bin/bash
+Jul 31 03:29:03 kali-target passwd[4050]: password for 'svc-backup' changed by 'root'
+Jul 31 03:29:07 kali-target usermod[4051]: add 'svc-backup' to group 'sudo'

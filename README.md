@@ -46,8 +46,8 @@ Manual exploitation of **9 vulnerability classes** in Damn Vulnerable Web Applic
 ### `03-va-report/`: Vulnerability Assessment Report
 Consolidated professional VA report on the Metasploitable 2 target (executive summary, scope, findings, business impact, remediation).
 
-### `04-siem/`: SIEM & Detection Engineering *(in progress)*
-Splunk deployment, log onboarding, detection rules mapped to MITRE ATT&CK, and alert triage / investigation writeups.
+### `04-siem/`: SIEM & Detection Engineering
+Splunk SOC portfolio: four detections across the attack kill chain (network recon, web attack, SSH brute force, Linux auth/persistence) mapped to MITRE ATT&CK, with dashboards, scheduled alerts, sample logs, per-project screenshots, and a cross-source kill-chain correlation of a single attacker.
 
 ### `05-windows/`: Windows Endpoint & Telemetry *(in progress)*
 Sysmon deployment, Windows Event log analysis, and endpoint detection on real Windows hardware.
